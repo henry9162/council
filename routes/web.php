@@ -28,7 +28,7 @@ Route::get('/threads', 'ThreadController@index')->name('threads');
 Route::get('/thread/{channel}', 'ThreadController@index');
 Route::get('/threads/search', 'SearchController@show');
 
-Route::get('/threads/create', 'ThreadController@create');
+Route::get('/threads/create', 'ThreadController@create')->middleware('must-be-confirmed');
 
 Route::get('/thread/{channel}/{thread}', 'ThreadController@show');
 Route::patch('/thread/{channel}/{thread}', 'ThreadController@update');
